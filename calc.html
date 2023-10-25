@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">    
+    <title>Document</title>
+    <style>
+        /* Background and text styles */
+.calculator {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  width: 320px;
+  background-color: #f7fafc;
+}
+
+#result {
+  font-size: 2rem;
+}
+
+/* Button styles */
+button {
+  font-size: 1.5rem;
+  width: 100%;
+  border: none;
+}
+
+/* Operator buttons */
+button.operator {
+  background-color: #f6e05e;
+  color: #1a202c;
+}
+
+/* Clear and backspace buttons */
+button.clear,
+button.backspace {
+  background-color: #e53e3e;
+  color: #fff;
+}
+
+/* Hover and focus styles */
+button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #4fd1c5;
+}
+
+    </style>
+</head>
+<body>
+    <div class="calculator flex flex-col justify-center items-center space-y-4 bg-gray-200 p-4 rounded-md">
+        <input type="text" id="result" class="text-right py-2 px-4 rounded-md w-full outline-none" readonly>
+        <div class="grid grid-cols-4 gap-2">
+          <button onclick="clearResult()" class="py-2 px-4 rounded-md bg-white shadow hover:bg-gray-100">C</button>
+          <button onclick="backspace()" class="py-2 px-4 rounded-md bg-white shadow hover:bg-gray-100">⌫</button>
+          <button onclick="insertNumber(7)" class="py-2 px-4 rounded-md bg-white shadow hover:bg-gray-100">7</button>
+          <button onclick="insertNumber(8)" class="py-2 px-4 rounded-md bg-white shadow hover:bg-gray-100">8</button>
+          <button onclick="insertNumber(9)" class="py-2 px-4 rounded-md bg-white shadow hover:bg-gray-100">9</button>
+          <button onclick="operation('/')" class="py-2 px-4 rounded-md bg-yellow-400 text-white shadow hover:bg-yellow-500">÷</button>
+          <button onclick="insertNumber(4)" class="py-2 px-4 rounded-md bg-white shadow hover:bg-gray-100">4</button>
+          <button onclick="insertNumber(5)" class="py-2 px-4 rounded-md bg-white shadow hover:bg-gray-100">5</button>
+          <button onclick="insertNumber(6)" class="py-2 px-4 rounded-md bg-white shadow hover:bg-gray-100">6</button>
+          <button onclick="operation('*')" class="py-2 px-4 rounded-md bg-yellow-400 text-white shadow hover:bg-yellow-500">x</button>
+          <button onclick="insertNumber(1)" class="py-2 px-4 rounded-md bg-white shadow hover:bg-gray-100">1</button>
+          <button onclick="insertNumber(2)" class="py-2 px-4 rounded-md bg-white shadow hover:bg-gray-100">2</button>
+          <button onclick="insertNumber(3)" class="py-2 px-4 rounded-md bg-white shadow hover:bg-gray-100">3</button>
+          <button onclick="operation('-')" class="py-2 px-4 rounded-md bg-yellow-400 text-white shadow hover:bg-yellow-500">-</button>
+          <button onclick="insertNumber(0)" class="py-2 px-4 rounded-md bg-white shadow hover:bg-gray-100">0</button>
+          <button onclick="insertNumber('.')" class="py-2 px-4 rounded-md bg-white shadow hover:bg-gray-100">.</button>
+          <button onclick="calculate()" class="py-2 px-4 rounded-md bg-yellow-400 text-white shadow hover:bg-yellow-500">=</button>
+          <button onclick="operation('+')" class="py-2 px-4 rounded-md bg-yellow-400 text-white shadow hover:bg-yellow-500">+</button>
+        </div>
+      </div>
+<script>
+    var result = document.getElementById('result');
+
+function insertNumber(number) {
+  result.value += number;
+}
+
+function operation(operator) {
+  result.value += operator;
+}
+
+function calculate() {
+  result.value = eval(result.value);
+}
+
+function clearResult() {
+  result.value = '';
+}
+
+
+</script>      
+</body>
+</html>
